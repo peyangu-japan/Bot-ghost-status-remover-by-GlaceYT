@@ -40,7 +40,7 @@ app.listen(port, () => {
 const statusMessages = ["discord.gg/bjJTRhpJuf"];
 const statusTypes = [ 'dnd', 'idle'];
 let currentStatusIndex = 0;
-let currentTypeIndex = 1;
+let currentTypeIndex = 0;
 
 async function login() {
   try {
@@ -58,7 +58,7 @@ function updateStatus() {
   const currentStatus = statusMessages[currentStatusIndex];
   const currentType = statusTypes[currentTypeIndex];
   client.user.setPresence({
-    activities: [{ name: currentStatus, type: ActivityType.Custom }],
+    activities: [{ name: currentStatus, type: ActivityType.Playing }],
     status: currentType,
   });
   console.log('\x1b[33m[ STATUS ]\x1b[0m', `Updated status to: ${currentStatus} (${currentType})`);
